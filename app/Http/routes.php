@@ -11,12 +11,15 @@
 |
 */
 
-$app->get('/', function () use ($app) {
-    return $app->welcome();
-});
+
 
 $app->get('/key', function () use ($app) {
     echo str_random(32);
 });
-$app->get('/agenda', ['uses'=>'AgendaController@index', 'as'=>'agenda-contados']);
+$app->get('/', ['uses'=>'AgendaController@index', 'as'=>'agenda-contados']);
+
+$app->get('/consulta/{letra}',
+    [
+        'uses'=>'AgendaController@consulta',
+        'as'=>'agenda-letra']);
 

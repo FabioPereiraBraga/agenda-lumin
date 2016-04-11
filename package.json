@@ -1,0 +1,25 @@
+{
+  "name": "agenda-lumin-51",
+  "version": "0.0.0",
+  "description": "estudo",
+  "main": "gulpfile.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "gulp": "~3.9.1",
+     "laravel-elixir":"^3.0.0"
+  },
+  "devDependencies": {
+    "gulp": "~3.9.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.com:projetos-estudo/lumin-51.git"
+  },
+  "author": "fabio braga",
+  "license": "MIT"
+}

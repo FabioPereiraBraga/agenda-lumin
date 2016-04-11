@@ -26,7 +26,7 @@ class Pessoa extends Model
 
     public function telefones()
     {
-        
+        return $this->hasMany(Telefone::class);
     }
 
 
