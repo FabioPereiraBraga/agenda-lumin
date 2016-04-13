@@ -30,6 +30,11 @@ class Telefone extends Model
         return "{$this->codpais}({$this->prefixo}) {$this->ddd}-{$this->sufixo} ";
     }
 
+    public function pessoa()
+    {
+        return $this->belongsTo(Pessoa::class);
+    }
+
 
     //put your code here
 }

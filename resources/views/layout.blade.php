@@ -21,10 +21,10 @@
 
               <small><i class="glyphicon glyphicon-phone-alt"></i></small>
               <span class="pull-right">
-                  <form action="" method="POST">
+                  <form action="{{ route('agenda.busca')}}" method="POST">
                       <div class="col-lg-12">
     <div class="input-group">
-      <input type="text" class="form-control" placeholder="Pesquisar Contato">
+        <input type="text" class="form-control"  name="busca" placeholder="Pesquisar Contato">
       <span class="input-group-btn">
           <button class="btn btn-default" type="button"> <i class="fa fa-search"></i></button>
       </span>

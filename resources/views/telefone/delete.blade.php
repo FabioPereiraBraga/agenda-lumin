@@ -1,0 +1,26 @@
+
+
+@extends('layout')
+
+@section('content')
+
+
+<div class="col-md-6">
+    <h3> Deseja realmente apagar esse telefone ? <br/>
+        <small> {{ $telefone->descricao }} : {{ $telefone->numero  }}</small>
+    </h3>
+
+    <form action="{{route('telefone.destroy',['id'=>$telefone->id ])}}" method="post">
+        <input type="hidden" name="_method" value="DELETE" />
+
+   
+        <button class="btn btn-danger" type="submit" >Apagar</button>
+        <a href="{{ route('agenda-contados')}}" class="btn btn-primary">Voltar</a>
+    </form>
+</div>
+<div class="col-md-6">
+   @include('agenda.contato')
+</div>
+
+
+@endsection

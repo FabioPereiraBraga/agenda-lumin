@@ -23,3 +23,37 @@ $app->get('/consulta/{letra}',
         'uses'=>'AgendaController@consulta',
         'as'=>'agenda-letra']);
 
+$app->get('/busca',
+    [
+        'uses'=>'AgendaController@busca',
+        'as'=>'agenda.busca']);
+
+$app->get('/contato/apagar/{id}',[
+    'uses'=>'PessoaController@delete',
+    'as'=>'pessoa-delete'
+    
+]);
+
+$app->get('/telefone/apagar/{id}',[
+    'uses'=>'TelefoneController@delete',
+    'as'=>'telefone.delete'
+
+]);
+$app->get('/telefone/{id}/apagar',[
+   'as'=>'telefone.destroy',
+    'uses'=>'TelefoneController@delete'
+]);
+
+$app->delete('/telefone/{id}',[
+   'as'=>'telefone.destroy',
+    'uses'=>'TelefoneController@destroy'
+]);
+
+$app->delete('/contato/{id}',[
+   'as'=>'pessoa.destroy',
+    'uses'=>'PessoaController@destroy'
+]);
+
+
+
+

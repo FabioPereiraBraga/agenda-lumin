@@ -21,7 +21,7 @@
               <a href="#" class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="top" title="Editar Contato">
                   <i class="fa fa-edit"></i>
               </a>
-               <a href="#" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="Apagar Contato">
+               <a href="{{ route('pessoa-delete',['id'=>$pessoa->id])}}" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="Apagar Contato">
                   <i class="fa fa-minus-circle"></i>
               </a>
           </span>
@@ -34,7 +34,7 @@
               <td> {{ $telefone->numero}}</td>
             
               <td>
-                  <a href="#" class="text-danger"
+                  <a href="{{ route('telefone.delete',['id'=>$telefone->id]) }}" class="text-danger"
                      data-toggle="tooltip" data-placement="top" title="Apagar Contato">
                       <i class="fa fa-minus-circle"></i></a>
               </td>

@@ -13,6 +13,7 @@ namespace App\Http\Controllers;
  */
 
 use App\Entities\Pessoa;
+use Illuminate\Support\Facades\Request;
 
 class AgendaController extends Controller
 {
@@ -21,33 +22,34 @@ class AgendaController extends Controller
     {
        $pessoas = Pessoa::where('Apelido' , 'like', "A%")->get();
 
-       $letras  = $this->consultaLetras();
-      return view('agenda', ['pessoas'=>$pessoas, 'letras' => $letras] );
+     
+      return view('agenda', ['pessoas'=>$pessoas] );
     }
 
      public function consulta( $like )
     {
-         $letras  = $this->consultaLetras();
+        
 
      $pessoas = Pessoa::where('Apelido' , 'like', "{$like}%")->get();
 
 
-      return view('agenda', ['pessoas'=>$pessoas,'letras'=>$letras] );
+      return view('agenda', ['pessoas'=>$pessoas] );
     }
 
-    public function consultaLetras()
+   
+
+    public function busca( Request $request )
     {
-        $result = Pessoa::all(['Apelido']);
-
-      
-        $letras = [ ];
-        foreach ( $result as $resul)
-        {
-           $letras[ ] = ucfirst ( substr($resul['Apelido'], 0,1) );
-        }
-
-        sort($letras);
-        return array_unique($letras);
+          $busca = $request->busca;
+         
+          $pessoas = [ ];
+          if(!empty( $busca ) ){
+              $pessoas     = Pessoa::where('apelido' , 'like', "%{$busca}%")
+                                    ->orWhere('nome' , 'like', "%{$busca}%")
+                                    ->get();
+          }
+         
+         return view('agenda', ['pessoas'=>$pessoas] );
     }
 
 }
