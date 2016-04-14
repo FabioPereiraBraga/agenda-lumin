@@ -13,7 +13,7 @@ namespace App\Http\Controllers;
  */
 
 use App\Entities\Pessoa;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
 
 class AgendaController extends Controller
 {
@@ -38,8 +38,9 @@ class AgendaController extends Controller
 
    
 
-    public function busca( Request $request )
+    public function buscar(Request $request )
     {
+       
           $busca = $request->busca;
          
           $pessoas = [ ];

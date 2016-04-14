@@ -11,11 +11,34 @@
 |
 */
 
+$app->post('/contato',
+    [
+        'uses'=>'PessoaController@store',
+        'as'=>'pessoa.store']);
+
+$app->put('/contato/{id}',
+    [
+        'uses'=>'PessoaController@update',
+        'as'=>'pessoa.update']);
+
+
+$app->get('/contato/novo',
+    [
+        'uses'=>'PessoaController@create',
+        'as'=>'pessoa.create']);
+
+
+$app->get('/contato/{id}',
+    [
+        'uses'=>'PessoaController@edit',
+        'as'=>'pessoa.edit']);
 
 
 $app->get('/key', function () use ($app) {
     echo str_random(32);
 });
+
+
 $app->get('/', ['uses'=>'AgendaController@index', 'as'=>'agenda-contados']);
 
 $app->get('/consulta/{letra}',
@@ -25,7 +48,7 @@ $app->get('/consulta/{letra}',
 
 $app->get('/busca',
     [
-        'uses'=>'AgendaController@busca',
+        'uses'=>'AgendaController@buscar',
         'as'=>'agenda.busca']);
 
 $app->get('/contato/apagar/{id}',[

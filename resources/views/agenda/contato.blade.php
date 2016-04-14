@@ -18,7 +18,7 @@
       <h3>
           {{ $pessoa->nome}}
           <span class="pull-right">
-              <a href="#" class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="top" title="Editar Contato">
+              <a href="{{ route('pessoa.edit',['id'=>$pessoa->id])}}" class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="top" title="Editar Contato">
                   <i class="fa fa-edit"></i>
               </a>
                <a href="{{ route('pessoa-delete',['id'=>$pessoa->id])}}" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="Apagar Contato">

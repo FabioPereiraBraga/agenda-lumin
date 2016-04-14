@@ -21,12 +21,12 @@
 
               <small><i class="glyphicon glyphicon-phone-alt"></i></small>
               <span class="pull-right">
-                  <form action="{{ route('agenda.busca')}}" method="POST">
+                  <form action="{{ route('agenda.busca')}}" method="get">
                       <div class="col-lg-12">
     <div class="input-group">
         <input type="text" class="form-control"  name="busca" placeholder="Pesquisar Contato">
       <span class="input-group-btn">
-          <button class="btn btn-default" type="button"> <i class="fa fa-search"></i></button>
+          <button class="btn btn-default" type="submit"> <i class="fa fa-search"></i></button>
       </span>
     </div><!-- /input-group -->
   </div>
@@ -43,10 +43,14 @@
           </div>
 
   <div class="row">
-      <div class="btn-row">
-      <a href="#" class="btn btn-primary ">Novo Contato</a>
-  </div>
-   </div>
+    
+     <div class="col-lg-12">
+         <div class="btn-row">
+      <a href="{{ route('pessoa.create')}}" class="btn btn-success btn-sm ">Novo Contato</a>
+      </div>
+    </div>
+  
+     </div>
   <div class="row">
       @yield('content')
   </div>
